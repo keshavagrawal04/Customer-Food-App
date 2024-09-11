@@ -32,3 +32,22 @@ Node.js
 React Native CLI
 Android Studio or Xcode (for emulators)
 Firebase (for backend and OTP auth)
+
+## Installation
+
+# Clone the repository:
+```
+git clone https://github.com/yourusername/food-app-customer.git
+```
+
+# Install project dependencies:
+```
+npm install
+```
+
+# Run the app on an emulator or connected device:
+```
+npx react-native run-android    # For Android
+npx react-native run-ios        # For iOS
+```
+
