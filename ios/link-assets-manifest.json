@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Montserrat-Bold.ttf",
+      "sha1": "98c66622226025f539568865af96df5175e2979c"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "bb895d19b8a1fbe1c57fc89cac5da82fdc8fdef4"
+    },
+    {
+      "path": "src/assets/fonts/Proxima-Nova-Bold.otf",
+      "sha1": "92bb573997e69556c792d3c4d4c0647737c11fd5"
+    },
+    {
+      "path": "src/assets/fonts/Proxima-Nova-Regular.ttf",
+      "sha1": "7174dee37d9851739eb6e9f24152a91e1024c9bd"
+    },
+    {
+      "path": "src/assets/fonts/Proxima-Nova-Semibold.otf",
+      "sha1": "ce2bf1d0e28c7dbe5261516cedfa1982ce00256a"
+    }
+  ]
+}
