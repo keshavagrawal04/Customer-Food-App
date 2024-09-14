@@ -19,6 +19,8 @@ import {
   filterOptions,
   quickPicOptions,
   whatsInMind,
+  dishes,
+  restaurant,
 } from "./constants";
 import {AdvertisementCarousel} from "../../components/Carousels";
 
@@ -106,7 +108,7 @@ const Home = ({navigation}) => {
 
   return (
     <ScrollView
-      className="px-3 mt-2"
+      className="px-3 pt-2 bg-[#EFEBEB]"
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
       }>
@@ -231,7 +233,10 @@ const Home = ({navigation}) => {
       </Text>
 
       {/* What's on your Mind Items */}
-      <ScrollView horizontal className="flex flex-row gap-4 mt-1">
+      <ScrollView
+        horizontal
+        className="flex flex-row gap-4 mt-1"
+        showsHorizontalScrollIndicator={false}>
         {whatsInMind?.map(item => (
           <View key={item.id} className="flex items-center">
             <Image
@@ -248,7 +253,10 @@ const Home = ({navigation}) => {
       <Text className="text-black font-montserrat-bold text-sm mt-8">
         Most Searched
       </Text>
-      <ScrollView className="flex flex-row gap-2 mt-2" horizontal >
+      <ScrollView
+        className="flex flex-row gap-2 mt-2"
+        horizontal
+        showsHorizontalScrollIndicator={false}>
         <View>
           <CustomCard />
         </View>
@@ -261,7 +269,10 @@ const Home = ({navigation}) => {
       </ScrollView>
 
       {/* Filter Options */}
-      <ScrollView horizontal className="flex flex-row gap-2 mt-4">
+      <ScrollView
+        horizontal
+        className="flex flex-row gap-2 mt-4"
+        showsHorizontalScrollIndicator={false}>
         {filterOptions?.map(item => (
           <TouchableOpacity
             key={item.id}
@@ -303,8 +314,22 @@ const Home = ({navigation}) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <RestaurantCard />
-      <RestaurantCard containerStyles={`mt-4`} />
+      <RestaurantCard dishes={dishes} restaurant={restaurant} />
+      <RestaurantCard
+        containerStyles={`mt-4`}
+        dishes={dishes}
+        restaurant={restaurant}
+      />
+      <RestaurantCard
+        containerStyles={`mt-4`}
+        dishes={dishes}
+        restaurant={restaurant}
+      />
+      <RestaurantCard
+        containerStyles={`mt-4`}
+        dishes={dishes}
+        restaurant={restaurant}
+      />
       <View className="mt-24"></View>
       <PermissionModal
         visible={showPermissionAlert.visible}

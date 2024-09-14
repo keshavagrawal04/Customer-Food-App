@@ -17,6 +17,8 @@ import salad from "./salad.png";
 import coffee from "./coffee.png";
 import juice from "./juice.png";
 import noodles from "./noodles.png";
+import gulabJamun from "./gulabJamun.png";
+import gulabJamunBig from "./gulabJamunBig.png";
 
 const images = {
   dosa,
@@ -38,6 +40,8 @@ const images = {
   punjabi,
   masalaDosa,
   noodles,
+  gulabJamun,
+  gulabJamunBig,
 };
 
 export default images;

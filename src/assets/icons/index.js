@@ -30,6 +30,7 @@ import backArrowPrimary from "./backArrowPrimary.png";
 import cancel from "./cancel.png";
 import close from "./close.png";
 import microphoneLight from "./microphoneLight.png";
+import forwardPrimaryArrow from "./forwardPrimaryArrow.png";
 
 const icons = {
   location,
@@ -64,6 +65,7 @@ const icons = {
   cancel,
   close,
   microphoneLight,
+  forwardPrimaryArrow,
 };
 
 export default icons;

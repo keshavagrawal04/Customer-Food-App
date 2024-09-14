@@ -70,3 +70,26 @@ export const whatsInMind = [
   {id: 6, name: "Salad", image: images.salad},
   {id: 7, name: "Juice", image: images.juice},
 ];
+
+export const dishes = [
+  {
+    name: "Noodles",
+    price: "60",
+    image: images.noodles,
+    distance: "4.5 Km",
+    time: "31 mins",
+  },
+  {
+    name: "Chowmein",
+    price: "50",
+    image: images.noodles,
+    distance: "4.5 Km",
+    time: "31 mins",
+  },
+];
+
+export const restaurant = {
+  name: "Sam Food Parlor",
+  review: "4.5",
+  offer: "Flat ₹125 OFF above ₹249",
+};
