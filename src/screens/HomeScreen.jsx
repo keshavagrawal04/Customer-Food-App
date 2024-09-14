@@ -125,7 +125,7 @@ const HomeScreen = () => {
                 <Image
                   className="w-full h-full"
                   resizeMode="contain"
-                  source={icons.homeActive}
+                  source={icons.accountActive}
                 />
               ) : (
                 <Image

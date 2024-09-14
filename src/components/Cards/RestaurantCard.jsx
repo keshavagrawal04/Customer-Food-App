@@ -1,27 +1,30 @@
-import {Text, View, Image, TouchableOpacity} from "react-native";
+import {Text, View, Image, TouchableOpacity, ScrollView} from "react-native";
 import React from "react";
 import images from "../../assets/images";
 import icons from "../../assets/icons";
+import RestaurantCarousel from "../Carousels/RestaurantCarousel";
 
 const RestaurantCard = ({containerStyles}) => {
+  const dishes = [
+    {
+      name: "Noodles",
+      price: "60",
+      image: images.noodles,
+      distance: "4.5 Km",
+      time: "31 mins",
+    },
+    {
+      name: "Chowmein",
+      price: "50",
+      image: images.noodles,
+      distance: "4.5 Km",
+      time: "31 mins",
+    },
+  ];
+
   return (
     <View className={`rounded-2xl bg-white ${containerStyles}`}>
-      <Image
-        source={images.noodles}
-        className="h-[280px] w-full rounded-t-2xl"
-        resizeMode="cover"
-      />
-      <Text className="absolute top-4 left-3 text-black font-proxima-nova-regular bg-white rounded-full py-2 px-3">
-        Noodles &#8377;60
-      </Text>
-      <View className="absolute top-4 right-3 flex gap-2">
-        <TouchableOpacity className="rounded-full bg-white p-2">
-          <Image source={icons.wishlist} className="w-[22px] h-[22px]" />
-        </TouchableOpacity>
-        <TouchableOpacity className="rounded-full bg-white p-2">
-          <Image source={icons.add} className="w-[22px] h-[22px]" />
-        </TouchableOpacity>
-      </View>
+      <RestaurantCarousel dishes={dishes} />
       <View className="flex flex-row items-center justify-between mx-5 border-b-[1px] border-[#E3E3E3] py-3">
         <Text className="text-black font-montserrat-bold text-2xl">
           Sam Food Parlor

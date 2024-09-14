@@ -6,14 +6,13 @@ import {
   Switch,
   TouchableOpacity,
   PermissionsAndroid,
-  Alert,
   Linking,
   RefreshControl,
 } from "react-native";
 import {SearchInput} from "../../components/Inputs";
 import React, {useState} from "react";
 import icons from "../../assets/icons";
-import {RestaurantCard} from "../../components/Cards";
+import {CustomCard, RestaurantCard} from "../../components/Cards";
 import {PermissionModal, VoiceInput} from "../../components/Modals";
 import {
   categories1,
@@ -21,6 +20,7 @@ import {
   quickPicOptions,
   whatsInMind,
 } from "./constants";
+import {AdvertisementCarousel} from "../../components/Carousels";
 
 const Home = ({navigation}) => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -74,7 +74,7 @@ const Home = ({navigation}) => {
     const hasPermission = await PermissionsAndroid.check(
       PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
     );
-    setShowVoiceAlert({visible: true});
+
     if (!hasPermission) {
       setShowPermissionAlert({
         visible: true,
@@ -87,6 +87,8 @@ const Home = ({navigation}) => {
         title: "Allow Microphone Access for Voice Search",
         message: "It’ll help us translate voice to search",
       });
+    } else {
+      setShowVoiceAlert({visible: true});
     }
   };
 
@@ -171,6 +173,9 @@ const Home = ({navigation}) => {
         </View>
       </View>
 
+      {/* Advertisement  */}
+      <AdvertisementCarousel />
+
       {/* Food Categories Row 1 */}
       <View className="flex flex-row justify-between flex-wrap">
         {categories1?.map(item => (
@@ -189,11 +194,11 @@ const Home = ({navigation}) => {
 
       {/* Quick Pics Text */}
       <View className="flex flex-row items-center justify-between mt-5">
-        <Text className="text-black font-montserrat-bold text-xl">
+        <Text className="text-black font-montserrat-bold text-sm">
           Quick Pics For You
         </Text>
         <TouchableOpacity>
-          <Text className="text-primary-orange font-montserrat-semibold text-lg">
+          <Text className="text-primary-orange font-montserrat-semibold text-sm">
             View All
           </Text>
         </TouchableOpacity>
@@ -221,7 +226,7 @@ const Home = ({navigation}) => {
       </View>
 
       {/* What's on your Mind Text */}
-      <Text className="text-black font-montserrat-bold mt-4 text-xl">
+      <Text className="text-black font-montserrat-bold mt-4 text-sm">
         Rohan, What’s on your Mind
       </Text>
 
@@ -234,17 +239,26 @@ const Home = ({navigation}) => {
               className="w-[68px] rounded-full h-[68px]"
               resizeMode="contain"
             />
-            <Text className="text-black font-montserrat-semibold text-lg">
-              {item.name}
-            </Text>
+            <Text className="text-black font-montserrat-bold">{item.name}</Text>
           </View>
         ))}
       </ScrollView>
 
       {/* Most Searched Text */}
-      <Text className="text-black font-montserrat-bold text-xl mt-8">
+      <Text className="text-black font-montserrat-bold text-sm mt-8">
         Most Searched
       </Text>
+      <ScrollView className="flex flex-row gap-2 mt-2" horizontal >
+        <View>
+          <CustomCard />
+        </View>
+        <View>
+          <CustomCard />
+        </View>
+        <View>
+          <CustomCard />
+        </View>
+      </ScrollView>
 
       {/* Filter Options */}
       <ScrollView horizontal className="flex flex-row gap-2 mt-4">
@@ -280,11 +294,11 @@ const Home = ({navigation}) => {
 
       {/* Top Restaurants */}
       <View className="flex flex-row items-center justify-between my-5">
-        <Text className="text-black font-montserrat-bold text-xl">
+        <Text className="text-black font-montserrat-bold text-lg">
           TOP 1550 Restaurants
         </Text>
         <TouchableOpacity>
-          <Text className="text-primary-orange font-montserrat-semibold text-lg">
+          <Text className="text-primary-orange font-montserrat-semibold text-sm">
             View All
           </Text>
         </TouchableOpacity>

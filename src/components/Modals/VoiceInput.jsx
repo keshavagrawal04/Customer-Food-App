@@ -23,9 +23,7 @@ const VoiceInput = ({visible, handleClose}) => {
               Hi, I’m Listening. Try Saying...
             </Text>
             <View className="flex items-center justify-center my-8">
-              <TouchableOpacity
-                className="bg-primary-orange p-3 rounded-full border-[5px] border-[#fd631f33]"
-                onPress={startRecording}>
+              <TouchableOpacity className="bg-primary-orange p-3 rounded-full border-[5px] border-[#fd631f33]">
                 <Image
                   source={icons.microphoneLight}
                   className="w-[34px] h-[34px]"
