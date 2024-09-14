@@ -19,6 +19,7 @@
 		24EBFF7C82A04AA488C7EC33 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4924B7FF4A34328AAB78BC5 /* Montserrat-Bold.ttf */; };
 		B8510ED1521842A9A9555166 /* Proxima-Nova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBDA0A6C0282433C845067EE /* Proxima-Nova-Regular.ttf */; };
 		47ED23764C654FEC9C8CAA79 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30F7F2155C0C443786E98F3F /* Montserrat-Regular.ttf */; };
+		DD32EC37218F4E908AA12805 /* Montserrat-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6E55E84A534EE4ADAFEC08 /* Montserrat-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B4924B7FF4A34328AAB78BC5 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		EBDA0A6C0282433C845067EE /* Proxima-Nova-Regular.ttf */ = {isa = PBXFileReference; name = "Proxima-Nova-Regular.ttf"; path = "../src/assets/fonts/Proxima-Nova-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		30F7F2155C0C443786E98F3F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FC6E55E84A534EE4ADAFEC08 /* Montserrat-Semibold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Semibold.ttf"; path = "../src/assets/fonts/Montserrat-Semibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				B4924B7FF4A34328AAB78BC5 /* Montserrat-Bold.ttf */,
 				EBDA0A6C0282433C845067EE /* Proxima-Nova-Regular.ttf */,
 				30F7F2155C0C443786E98F3F /* Montserrat-Regular.ttf */,
+				FC6E55E84A534EE4ADAFEC08 /* Montserrat-Semibold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				24EBFF7C82A04AA488C7EC33 /* Montserrat-Bold.ttf in Resources */,
 				B8510ED1521842A9A9555166 /* Proxima-Nova-Regular.ttf in Resources */,
 				47ED23764C654FEC9C8CAA79 /* Montserrat-Regular.ttf in Resources */,
+				DD32EC37218F4E908AA12805 /* Montserrat-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

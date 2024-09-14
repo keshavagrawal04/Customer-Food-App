@@ -7,18 +7,30 @@ const CustomButton = ({
   textStyles,
   handleOnPress,
   variant = "primary-fill",
+  icon = false,
+  iconStyle,
 }) => {
   return (
     <>
       <TouchableOpacity
         onPress={handleOnPress}
-        className={`${containerStyles} ${
-          variant === "primary-fill" ? "bg-primary-orange" : "bg-light"
-        }`}>
+        className={`flex flex-row items-center justify-center ${containerStyles} 
+        ${variant === "primary-fill" && "bg-primary-orange"}
+        ${variant === "primary-outline" && "border border-primary-orange"}
+        ${variant === "primary-fill-transparent" && "bg-light"}
+        `}>
+        {icon && (
+          <>
+            <Image source={icon} className={iconStyle} resizeMode="contain" />
+            <Text>{"  "}</Text>
+          </>
+        )}
         <Text
-          className={`${textStyles} font-montserrat-bold ${
-            variant === "primary-fill" ? "text-white" : "text-secondary-gray"
-          }`}>
+          className={`${textStyles} font-montserrat-bold 
+          ${variant === "primary-fill" && "text-white"}
+          ${variant === "primary-outline" && "text-primary-orange"}
+        ${variant === "primary-fill-transparent" && "text-primary-orange"}
+          `}>
           {title}
         </Text>
       </TouchableOpacity>

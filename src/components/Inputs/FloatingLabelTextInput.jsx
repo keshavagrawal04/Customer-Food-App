@@ -28,7 +28,7 @@ const FloatingLabelTextInput = ({
 
   const labelBackgroundColor = borderWidth.interpolate({
     inputRange: [1, 2],
-    outputRange: ["#F4F5F7", "#F4F5F7"],
+    outputRange: ["#FFFF", "#FFFF"],
   });
 
   const transformAnimation = toValue => {
@@ -131,7 +131,7 @@ export default FloatingLabelTextInput;
 const styles = StyleSheet.create({
   container: {
     marginTop: 3,
-    backgroundColor: "#F4F5F7",
+    backgroundColor: "#FFFFFF",
     borderRadius: 11,
     width: "100%",
     alignSelf: "center",

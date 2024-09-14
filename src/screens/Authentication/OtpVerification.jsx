@@ -13,7 +13,7 @@ import {CustomButton} from "../../components";
 import {OtpInput} from "react-native-otp-entry";
 import {startOtpListener, removeListener} from "react-native-otp-verify";
 
-const OtpVerification = ({route}) => {
+const OtpVerification = ({route, navigation}) => {
   const {mobileNumber} = route.params;
   const [otp, setOtp] = useState("");
   const [secondsLeft, setSecondsLeft] = useState(60);
@@ -115,8 +115,11 @@ const OtpVerification = ({route}) => {
       </View>
       <CustomButton
         title={"Continue"}
-        containerStyles={"py-5 rounded-full mt-5"}
+        containerStyles={"py-4 rounded-full mt-5"}
         textStyles={"text-center text-lg"}
+        handleOnPress={() => {
+          navigation.navigate("LocationAccess");
+        }}
       />
       <View className="mt-6">
         {secondsLeft > 0 ? (

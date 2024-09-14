@@ -41,7 +41,7 @@ const Login = ({navigation}) => {
       </View>
       <CustomButton
         title={"Get OTP"}
-        containerStyles={"py-5 rounded-full"}
+        containerStyles={"py-4 rounded-full"}
         textStyles={"text-center text-lg"}
         handleOnPress={formik.handleSubmit}
       />

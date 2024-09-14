@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string/>
 	<key>CFBundleDisplayName</key>
 	<string>customer_app</string>
 	<key>CFBundleExecutable</key>
@@ -31,8 +33,6 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -54,6 +54,7 @@
 		<string>Montserrat-Bold.ttf</string>
 		<string>Proxima-Nova-Regular.ttf</string>
 		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-Semibold.ttf</string>
 	</array>
 </dict>
 </plist>
