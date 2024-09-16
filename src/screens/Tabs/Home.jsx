@@ -17,6 +17,8 @@ import {
   PermissionModal,
   VoiceInput,
   VegModeModal,
+  FilterModal,
+  OfferModal,
 } from "../../components/Modals";
 import {
   categories1,
@@ -40,6 +42,7 @@ const Home = ({navigation}) => {
   const [refreshing, setRefreshing] = useState(false);
   const [openVegMode, setOpenVegMode] = useState(false);
   const [vegMode, setVegMode] = useState("vegDishes");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -301,6 +304,7 @@ const Home = ({navigation}) => {
             key={item.id}
             onPress={() => {
               setSelectedFilter(item.id);
+              setIsFilterOpen(true);
             }}
             className={`px-3 py-2 rounded-full flex flex-row items-center ${
               item.id === selectedFilter ? "bg-black" : "bg-white"
@@ -378,6 +382,13 @@ const Home = ({navigation}) => {
         setVegMode={setVegMode}
         setSwitch={setIsEnabled}
       />
+      <FilterModal
+        visible={isFilterOpen}
+        handleClose={() => {
+          setIsFilterOpen(false);
+        }}
+      />
+      <OfferModal />
     </ScrollView>
   );
 };

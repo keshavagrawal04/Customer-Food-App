@@ -28,10 +28,8 @@ const CustomButton = ({
         )}
         <Text
           className={`${textStyles} font-montserrat-bold 
-          ${
-            variant === "primary-fill" ||
-            (variant === "secondary-green-fill" && "text-white")
-          }
+          ${variant === "primary-fill" && "text-white"}
+          ${variant === "secondary-green-fill" && "text-white"}
           ${variant === "primary-outline" && "text-primary-orange"}
         ${variant === "primary-fill-transparent" && "text-primary-orange"}
           `}>
