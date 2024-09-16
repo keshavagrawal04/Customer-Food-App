@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {Account, Cart, Home, Orders, Restaurants} from "./Tabs";
-import {Image, View} from "react-native";
+import {Image, View, Text} from "react-native";
 import icons from "../assets/icons";
 
 const Tab = createBottomTabNavigator();
@@ -10,13 +10,11 @@ const screenOptions = {
   tabBarShowLabel: false,
   tabBarStyle: {
     position: "absolute",
-    bottom: 10,
+    bottom: 0,
     right: 0,
     left: 0,
-    height: 70,
+    height: 55,
     elevation: 0,
-    marginHorizontal: 15,
-    borderRadius: 50,
   },
 };
 
@@ -28,20 +26,27 @@ const HomeScreen = () => {
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <View className="w-[30px] h-[30px]">
+            <View className="flex items-center">
               {focused ? (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.homeActive}
                 />
               ) : (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.homeDeactive}
                 />
               )}
+              <Text
+                className={`font-montserrat-bold text-center ${
+                  focused ? "text-primary-orange" : "text-black"
+                }`}
+                style={{fontSize: 11}}>
+                Home
+              </Text>
             </View>
           ),
         }}
@@ -51,20 +56,27 @@ const HomeScreen = () => {
         component={Restaurants}
         options={{
           tabBarIcon: ({focused}) => (
-            <View className="w-[30px] h-[30px]">
+            <View className="flex items-center">
               {focused ? (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.restaurantActive}
                 />
               ) : (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.restaurantDeactive}
                 />
               )}
+              <Text
+                className={`font-montserrat-bold text-center ${
+                  focused ? "text-primary-orange" : "text-black"
+                }`}
+                style={{fontSize: 11}}>
+                Restaurants
+              </Text>
             </View>
           ),
         }}
@@ -74,20 +86,27 @@ const HomeScreen = () => {
         component={Cart}
         options={{
           tabBarIcon: ({focused}) => (
-            <View className="bg-primary-orange rounded-full p-2">
+            <View className="flex items-center">
               {focused ? (
                 <Image
-                  className="w-[30px] h-[30px]"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
-                  source={icons.cartDeactive}
+                  source={icons.cartActive}
                 />
               ) : (
                 <Image
-                  className="w-[30px] h-[30px]"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.cartDeactive}
                 />
               )}
+              <Text
+                className={`font-montserrat-bold text-center ${
+                  focused ? "text-primary-orange" : "text-black"
+                }`}
+                style={{fontSize: 11}}>
+                Eat List
+              </Text>
             </View>
           ),
         }}
@@ -97,20 +116,27 @@ const HomeScreen = () => {
         component={Orders}
         options={{
           tabBarIcon: ({focused}) => (
-            <View className="w-[30px] h-[30px]">
+            <View className="flex items-center">
               {focused ? (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.orderActive}
                 />
               ) : (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.orderDeactive}
                 />
               )}
+              <Text
+                className={`font-montserrat-bold text-center ${
+                  focused ? "text-primary-orange" : "text-black"
+                }`}
+                style={{fontSize: 11}}>
+                Re Order
+              </Text>
             </View>
           ),
         }}
@@ -120,20 +146,27 @@ const HomeScreen = () => {
         component={Account}
         options={{
           tabBarIcon: ({focused}) => (
-            <View className="w-[30px] h-[30px]">
+            <View className="flex items-center">
               {focused ? (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.accountActive}
                 />
               ) : (
                 <Image
-                  className="w-full h-full"
+                  className="w-[26px] h-[26px]"
                   resizeMode="contain"
                   source={icons.accountDeactive}
                 />
               )}
+              <Text
+                className={`font-montserrat-bold text-center ${
+                  focused ? "text-primary-orange" : "text-black"
+                }`}
+                style={{fontSize: 11}}>
+                Profile
+              </Text>
             </View>
           ),
         }}

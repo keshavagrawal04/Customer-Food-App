@@ -1,7 +1,7 @@
 import React from "react";
 import {Modal, View, Text, Image, TouchableOpacity} from "react-native";
 import icons from "../../assets/icons";
-import CustomButton from "../CustomButton";
+import {CustomButton} from "../Buttons";
 
 const PermissionModal = ({
   visible,

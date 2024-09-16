@@ -2,7 +2,7 @@ import {Text, View} from "react-native";
 import React from "react";
 import {useFormik} from "formik";
 import {FloatingLabelTextInput} from "../../components/Inputs";
-import {CustomButton} from "../../components";
+import {CustomButton} from "../../components/Buttons";
 import * as Yup from "yup";
 
 const Login = ({navigation}) => {

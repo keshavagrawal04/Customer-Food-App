@@ -13,7 +13,11 @@ import {SearchInput} from "../../components/Inputs";
 import React, {useState} from "react";
 import icons from "../../assets/icons";
 import {CustomCard, RestaurantCard} from "../../components/Cards";
-import {PermissionModal, VoiceInput} from "../../components/Modals";
+import {
+  PermissionModal,
+  VoiceInput,
+  VegModeModal,
+} from "../../components/Modals";
 import {
   categories1,
   filterOptions,
@@ -25,7 +29,7 @@ import {
 import {AdvertisementCarousel} from "../../components/Carousels";
 
 const Home = ({navigation}) => {
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(true);
   const [selectedQuickPic, setSelectedQuickPic] = useState("nearBy");
   const [selectedFilter, setSelectedFilter] = useState("filter");
   const [permissionDenied, setPermissionDenied] = useState(false);
@@ -34,6 +38,8 @@ const Home = ({navigation}) => {
   });
   const [showVoiceAlert, setShowVoiceAlert] = useState({visible: false});
   const [refreshing, setRefreshing] = useState(false);
+  const [openVegMode, setOpenVegMode] = useState(false);
+  const [vegMode, setVegMode] = useState("vegDishes");
 
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -167,9 +173,11 @@ const Home = ({navigation}) => {
           </Text>
           <Switch
             trackColor={{false: "#BEC4BD", true: "#BEC4BD"}}
-            thumbColor={isEnabled ? "#00000040" : "#FFFFFF"}
+            thumbColor={isEnabled ? "#2DAD78" : "#FFFFFF"}
             ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleSwitch}
+            onValueChange={() => {
+              setOpenVegMode(true);
+            }}
             value={isEnabled}
           />
         </View>
@@ -226,6 +234,21 @@ const Home = ({navigation}) => {
           </TouchableOpacity>
         ))}
       </View>
+      {/* Quicks Pics for You Items */}
+      <ScrollView
+        className="flex flex-row gap-2 mt-2"
+        horizontal
+        showsHorizontalScrollIndicator={false}>
+        <View>
+          <CustomCard />
+        </View>
+        <View>
+          <CustomCard />
+        </View>
+        <View>
+          <CustomCard />
+        </View>
+      </ScrollView>
 
       {/* What's on your Mind Text */}
       <Text className="text-black font-montserrat-bold mt-4 text-sm">
@@ -345,6 +368,15 @@ const Home = ({navigation}) => {
         handleClose={() => {
           setShowVoiceAlert(prev => ({...prev, visible: false}));
         }}
+      />
+      <VegModeModal
+        visible={openVegMode}
+        handleClose={() => {
+          setOpenVegMode(false);
+        }}
+        vegMode={vegMode}
+        setVegMode={setVegMode}
+        setSwitch={setIsEnabled}
       />
     </ScrollView>
   );

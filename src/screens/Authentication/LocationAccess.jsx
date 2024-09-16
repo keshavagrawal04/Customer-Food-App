@@ -11,7 +11,7 @@ import {
   Easing,
 } from "react-native";
 import GetLocation from "react-native-get-location";
-import {CustomButton} from "../../components";
+import {CustomButton} from "../../components/Buttons";
 import icons from "../../assets/icons";
 import images from "../../assets/images";
 

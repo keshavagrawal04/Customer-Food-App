@@ -31,6 +31,8 @@ import cancel from "./cancel.png";
 import close from "./close.png";
 import microphoneLight from "./microphoneLight.png";
 import forwardPrimaryArrow from "./forwardPrimaryArrow.png";
+import cartActive from "./cartActive.png";
+import dropdownUpArrow from "./dropdownUpArrow.png";
 
 const icons = {
   location,
@@ -66,6 +68,8 @@ const icons = {
   close,
   microphoneLight,
   forwardPrimaryArrow,
+  cartActive,
+  dropdownUpArrow,
 };
 
 export default icons;

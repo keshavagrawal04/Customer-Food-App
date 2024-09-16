@@ -16,6 +16,7 @@ const CustomButton = ({
         onPress={handleOnPress}
         className={`flex flex-row items-center justify-center ${containerStyles} 
         ${variant === "primary-fill" && "bg-primary-orange"}
+        ${variant === "secondary-green-fill" && "bg-secondary-green"}
         ${variant === "primary-outline" && "border border-primary-orange"}
         ${variant === "primary-fill-transparent" && "bg-light"}
         `}>
@@ -27,7 +28,10 @@ const CustomButton = ({
         )}
         <Text
           className={`${textStyles} font-montserrat-bold 
-          ${variant === "primary-fill" && "text-white"}
+          ${
+            variant === "primary-fill" ||
+            (variant === "secondary-green-fill" && "text-white")
+          }
           ${variant === "primary-outline" && "text-primary-orange"}
         ${variant === "primary-fill-transparent" && "text-primary-orange"}
           `}>

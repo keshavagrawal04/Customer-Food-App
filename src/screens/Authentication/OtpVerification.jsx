@@ -9,7 +9,7 @@ import {
   Platform,
   Alert,
 } from "react-native";
-import {CustomButton} from "../../components";
+import {CustomButton} from "../../components/Buttons";
 import {OtpInput} from "react-native-otp-entry";
 import {startOtpListener, removeListener} from "react-native-otp-verify";
 
