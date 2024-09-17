@@ -36,6 +36,10 @@ import dropdownUpArrow from "./dropdownUpArrow.png";
 import cancelDark from "./cancelDark.png";
 import whiteTick from "./whiteTick.png";
 import closeFill from "./closeFill.png";
+import closeWhiteFill from "./closeWhiteFill.png";
+import addGreen from "./addGreen.png";
+import oneStar from "./oneStar.png";
+import halfStar from "./halfStar.png";
 
 const icons = {
   location,
@@ -76,6 +80,10 @@ const icons = {
   cancelDark,
   whiteTick,
   closeFill,
+  closeWhiteFill,
+  addGreen,
+  oneStar,
+  halfStar,
 };
 
 export default icons;

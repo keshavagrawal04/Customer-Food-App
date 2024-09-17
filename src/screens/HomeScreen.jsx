@@ -19,7 +19,6 @@ const screenOptions = {
 };
 
 const HomeScreen = () => {
-
   return (
     <Tab.Navigator initialRouteName="Home" screenOptions={screenOptions}>
       <Tab.Screen
@@ -106,7 +105,7 @@ const HomeScreen = () => {
                   focused ? "text-primary-orange" : "text-black"
                 }`}
                 style={{fontSize: 11}}>
-                Eat List
+                Eatlist
               </Text>
             </View>
           ),
@@ -136,7 +135,7 @@ const HomeScreen = () => {
                   focused ? "text-primary-orange" : "text-black"
                 }`}
                 style={{fontSize: 11}}>
-                Re Order
+                Reorder
               </Text>
             </View>
           ),

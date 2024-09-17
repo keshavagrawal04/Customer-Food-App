@@ -19,6 +19,8 @@ import {
   VegModeModal,
   FilterModal,
   OfferModal,
+  DishDetailsModal,
+  CustomizeOrderModal,
 } from "../../components/Modals";
 import {
   categories1,
@@ -43,6 +45,8 @@ const Home = ({navigation}) => {
   const [openVegMode, setOpenVegMode] = useState(false);
   const [vegMode, setVegMode] = useState("vegDishes");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isOfferVisible, setIsOfferVisible] = useState(false);
+  const [isDishVisible, setIsDishVisible] = useState(false);
 
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -270,7 +274,11 @@ const Home = ({navigation}) => {
               className="w-[68px] rounded-full h-[68px]"
               resizeMode="contain"
             />
-            <Text className="text-black font-montserrat-bold">{item.name}</Text>
+            <Text
+              className="text-black font-montserrat-regular"
+              style={{fontSize: 12}}>
+              {item.name}
+            </Text>
           </View>
         ))}
       </ScrollView>
@@ -388,7 +396,19 @@ const Home = ({navigation}) => {
           setIsFilterOpen(false);
         }}
       />
-      <OfferModal />
+      <OfferModal
+        visible={isOfferVisible}
+        handleClose={() => {
+          setIsOfferVisible(false);
+        }}
+      />
+      <DishDetailsModal
+        visible={isDishVisible}
+        handleClose={() => {
+          setIsDishVisible(false);
+        }}
+      />
+      <CustomizeOrderModal />
     </ScrollView>
   );
 };

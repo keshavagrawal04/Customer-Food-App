@@ -22,6 +22,7 @@ import gulabJamunBig from "./gulabJamunBig.png";
 import noResultFound from "./noResultFound.png";
 import vegPercentage from "./vegPercentage.png";
 import offer from "./offer.png";
+import dish from "./dish.png";
 
 const images = {
   dosa,
@@ -48,6 +49,7 @@ const images = {
   noResultFound,
   vegPercentage,
   offer,
+  dish,
 };
 
 export default images;

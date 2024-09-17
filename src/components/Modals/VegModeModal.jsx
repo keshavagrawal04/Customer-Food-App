@@ -33,12 +33,14 @@ const VegModeModal = ({
                 value={"vegDishes"}
                 selected={vegMode}
                 onSelect={setVegMode}
+                color={"secondary-green"}
               />
               <CustomRadioButton
                 label={"Pure Veg restaurants only"}
                 value={"vegRestaurants"}
                 selected={vegMode}
                 onSelect={setVegMode}
+                color={"secondary-green"}
               />
             </View>
             <CustomButton

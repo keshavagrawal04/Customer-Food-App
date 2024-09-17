@@ -18,6 +18,10 @@ const CustomButton = ({
         ${variant === "primary-fill" && "bg-primary-orange"}
         ${variant === "secondary-green-fill" && "bg-secondary-green"}
         ${variant === "primary-outline" && "border border-primary-orange"}
+        ${
+          variant === "secondary-outline-green" &&
+          "border border-secondary-green"
+        }
         ${variant === "primary-fill-transparent" && "bg-light"}
         `}>
         {icon && (
@@ -31,6 +35,7 @@ const CustomButton = ({
           ${variant === "primary-fill" && "text-white"}
           ${variant === "secondary-green-fill" && "text-white"}
           ${variant === "primary-outline" && "text-primary-orange"}
+           ${variant === "secondary-outline-green" && "text-secondary-green"}
         ${variant === "primary-fill-transparent" && "text-primary-orange"}
           `}>
           {title}
