@@ -1,0 +1,176 @@
+import {ScrollView, Text, TouchableOpacity, View, Image} from "react-native";
+import React, {useState} from "react";
+import icons from "../../assets/icons";
+import images from "../../assets/images";
+
+const Checkout = ({navigation}) => {
+  const [type, setType] = useState("standard");
+  const [selectedTip, setSelectedTip] = useState(20);
+
+  const tipOptions = [20, 30, 50, "Other"];
+
+  return (
+    <ScrollView className="h-full px-4" style={{backgroundColor: "#EFEBEB"}}>
+      <View className="flex flex-row items-center gap-2 mt-4">
+        <Text className="text-black font-montserrat-bold text-lg">
+          Delivery Type
+        </Text>
+        <Text className="text-white bg-primary-orange font-montserrat-regular rounded-md px-2 py-1">
+          New
+        </Text>
+      </View>
+      <Text className="text-black-light font-montserrat-bold mt-2">
+        Your food will always be fresh!
+      </Text>
+      <View className="flex flex-row justify-between mt-5">
+        <TouchableOpacity
+          onPress={() => {
+            setType("standard");
+          }}
+          className={`bg-white border-2 w-[48%] rounded-xl px-3 py-5 ${
+            type === "standard" ? "border-primary-orange" : "border-white"
+          }`}>
+          <View
+            className={`w-[25px] h-[25px] absolute top-3 right-3 rounded-full p-1 ${
+              type === "standard"
+                ? "bg-primary-orange"
+                : "bg-white border border-[#00000033]"
+            }`}>
+            {type === "standard" && (
+              <Image source={icons.whiteTick} className="w-full h-full" />
+            )}
+          </View>
+          <Text className="text-black-light font-proxima-nova-regular">
+            Standard
+          </Text>
+          <Text className="text-black font-proxima-nova-bold">20-25 min.</Text>
+          <Text className="text-black-light font-proxima-nova-regular pt-3">
+            • Recommended if you are in a hurry
+          </Text>
+          <Text className="text-black-light font-proxima-nova-regular pt-2">
+            • Minimal order grouping
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setType("ecoSaver");
+          }}
+          className={`bg-white w-[48%] rounded-xl px-3 py-4  ${
+            type === "ecoSaver" && "border-2 border-primary-orange"
+          }`}>
+          <View
+            className={`w-[25px] h-[25px] absolute top-3 right-3 rounded-full p-1 ${
+              type === "ecoSaver"
+                ? "bg-primary-orange"
+                : "bg-white border border-[#00000033]"
+            }`}>
+            {type === "ecoSaver" && (
+              <Image source={icons.whiteTick} className="w-full h-full" />
+            )}
+          </View>
+          <Text className="text-black-light font-proxima-nova-regular">
+            Eco Saver
+          </Text>
+          <Text className="text-black font-proxima-nova-bold">20-25 min.</Text>
+          <Text className="text-black-light font-proxima-nova-regular pt-3">
+            • Less fuel pollution by grouping orders
+          </Text>
+          <Text className="text-secondary-green font-proxima-nova-bold mt-auto">
+            27% Less emissions
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View className="">
+        <Text className="my-4 text-black font-montserrat-bold text-lg">
+          Offers & Benefits
+        </Text>
+        <View className="bg-white rounded-xl">
+          <View className="border rounded-t-xl px-4 py-5">
+            <View className="flex flex-row items-center justify-between">
+              <Text className="text-black font-montserrat-bold pb-2">
+                Unlock TRYNEW
+              </Text>
+              <Text className="text-primary-orange font-montserrat-bold">
+                Add Item
+              </Text>
+            </View>
+            <Text className="font-proxima-nova-regular text-black-light mt-2">
+              Add items worth ₹59 to save ₹35
+            </Text>
+          </View>
+          <TouchableOpacity className="mx-auto my-6">
+            <Text className="font-montserrat-bold text-black-light">
+              View all coupons
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View>
+        <Text className="text-black font-montserrat-bold text-lg my-3">
+          Say Thanks with Tip!
+        </Text>
+        <View className="bg-white rounded-lg p-4">
+          <View className="flex flex-row justify-between">
+            <Text className="text-black-light w-[70%] font-proxima-nova-regular">
+              Day & night, our delivery partners brings your favorite meals.
+              Thank them with a tip.
+            </Text>
+            <View className="bg-[#FCECDF] rounded-lg p-2">
+              <Image source={images.tip} className="w-[55px] h-[55px]" />
+            </View>
+          </View>
+          <View className="flex flex-row justify-evenly mt-5 items-center">
+            {tipOptions?.map((tip, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => {
+                  setSelectedTip(tip);
+                }}
+                className={`border-2 border-black-light px-5 py-4 rounded-lg ${
+                  tip == selectedTip &&
+                  "border-primary-orange bg-[#fd631f1a] text-primary-orange"
+                }`}>
+                <Text
+                  className={`font-proxima-nova-regular ${
+                    tip == selectedTip ? "text-primary-orange" : "text-black"
+                  }`}>
+                  &#8377; {tip}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+      </View>
+      <View className="">
+        <Text className="my-4 text-black font-montserrat-bold text-lg">
+          Delivery Instructions
+        </Text>
+      </View>
+      <View className="">
+        <Text className="my-4 text-black font-montserrat-bold text-lg">
+          Review your order and address details to avoid cancellations
+        </Text>
+        <View className="bg-white rounded-xl font-proxima-nova-regular p-5">
+          <Text className="text-black-light font-proxima-nova-regular text-base">
+            <Text className="text-[#000000b3] font-proxima-nova-bold">
+              Note:{" "}
+            </Text>
+            Please ensure your address and order details are correct. This order
+            , if cancelled, is non- refundable.
+          </Text>
+          <TouchableOpacity
+            className="pt-4"
+            onPress={() => {
+              navigation.navigate("Policy");
+            }}>
+            <Text className="text-xl font-proxima-nova-bold text-primary-orange">
+              READ POLICY
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
+
+export default Checkout;

@@ -7,7 +7,14 @@ import {
   LocationAccess,
   Location,
 } from "../screens/Authentication";
-import {Splash, HomeScreen, SearchScreen, VegFilterPage} from "../screens";
+import {
+  Splash,
+  HomeScreen,
+  SearchScreen,
+  VegFilterPage,
+  Razorpay,
+} from "../screens";
+import {Checkout, Policy} from "../screens/Delivery";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +26,8 @@ const Navigation = () => {
           headerShown: false,
           contentStyle: {backgroundColor: "#FFFFFF"},
         }}
-        initialRouteName="HomeScreen">
+        initialRouteName="Checkout">
+        <Stack.Screen name="Razorpay" component={Razorpay} />
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="OtpVerification" component={OtpVerification} />
@@ -28,6 +36,8 @@ const Navigation = () => {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="VegFilterPage" component={VegFilterPage} />
+        <Stack.Screen name="Checkout" component={Checkout} />
+        <Stack.Screen name="Policy" component={Policy} />
       </Stack.Navigator>
     </NavigationContainer>
   );

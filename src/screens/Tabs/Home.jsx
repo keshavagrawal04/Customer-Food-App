@@ -408,7 +408,7 @@ const Home = ({navigation}) => {
           setIsDishVisible(false);
         }}
       />
-      <CustomizeOrderModal />
+      {/* <CustomizeOrderModal /> */}
     </ScrollView>
   );
 };

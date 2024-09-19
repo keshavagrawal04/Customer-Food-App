@@ -23,6 +23,7 @@ import noResultFound from "./noResultFound.png";
 import vegPercentage from "./vegPercentage.png";
 import offer from "./offer.png";
 import dish from "./dish.png";
+import tip from "./tip.png";
 
 const images = {
   dosa,
@@ -50,6 +51,7 @@ const images = {
   vegPercentage,
   offer,
   dish,
+  tip,
 };
 
 export default images;

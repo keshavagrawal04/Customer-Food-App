@@ -31,8 +31,6 @@ const DishDetailsModal = ({visible, handleClose}) => {
               title={"ADD"}
               variant="secondary-outline-green"
               containerStyles={"py-3 rounded-full absolute px-5 top-5 right-5"}
-              icon={icons.addGreen}
-              iconStyle={`h-[24px] w-[24px]`}
             />
             <View className="border border-secondary-green h-[12px] w-[12px] p-2 flex justify-center items-center rounded-sm">
               <View className="h-[10px] w-[10px] bg-secondary-green rounded-full" />

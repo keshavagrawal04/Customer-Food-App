@@ -18,6 +18,7 @@ module.exports = {
       },
       fontFamily: {
         "proxima-nova-regular": ["Proxima-Nova-Regular"],
+        "proxima-nova-regular-italic": ["Proxima-Nova-Regular-Italic"],
         "proxima-nova-bold": ["Proxima-Nova-Bold"],
         "proxima-nova-semibold": ["Proxima-Nova-Semibold"],
         "montserrat-bold": ["Montserrat-Bold"],
