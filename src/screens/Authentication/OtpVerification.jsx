@@ -85,10 +85,12 @@ const OtpVerification = ({route, navigation}) => {
     const response = await Apis.verifyOtp(
       mobileNumber,
       "e568d8ee-9167-4f2b-8df7-e82ab8209194",
-      "2667",
+      "5336",
       verificationId,
     );
-    console.log(response);
+    if (response.responseCode == 200) {
+      navigation("/HomeScreen");
+    }
   };
 
   return (
@@ -106,7 +108,7 @@ const OtpVerification = ({route, navigation}) => {
           focusColor="rgba(253, 99, 31, 1)"
           focusStickBlinkingDuration={500}
           onTextChange={text => console.log("Text Change:", text)}
-          onFilled={text => console.log("OTP Filled:", text)}
+          onFilled={text => setOtp(text)}
           textInputProps={{
             accessibilityLabel: "One-Time Password",
           }}

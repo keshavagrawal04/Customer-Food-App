@@ -40,6 +40,12 @@ import closeWhiteFill from "./closeWhiteFill.png";
 import addGreen from "./addGreen.png";
 import oneStar from "./oneStar.png";
 import halfStar from "./halfStar.png";
+import door from "./door.png";
+import doorBell from "./doorBell.png";
+import directions from "./directions.png";
+import backArrowDark from "./backArrowDark.png";
+import bottomArrowGray from "./bottomArrowGray.png";
+import bestOfferGreen from "./bestOfferGreen.png";
 
 const icons = {
   location,
@@ -84,6 +90,12 @@ const icons = {
   addGreen,
   oneStar,
   halfStar,
+  door,
+  doorBell,
+  directions,
+  backArrowDark,
+  bottomArrowGray,
+  bestOfferGreen,
 };
 
 export default icons;
