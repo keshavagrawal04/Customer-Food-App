@@ -15,16 +15,21 @@ const Checkout = ({navigation}) => {
         <View className="flex flex-row justify-between">
           <Image source={icons.backArrow} className="w-[24px] h-[24px]" />
           <View>
-            <Text className="text-black">
+            <Text className="text-black font-proxima-nova-regular text-base">
               20-25 mins to Home | 75, chhatri...
             </Text>
-            <Text className="text-black">Delivering Superfast!</Text>
+            <Text className="text-[#FFC742] font-proxima-nova-bold">
+              Delivering Superfast!
+            </Text>
           </View>
           <Image source={icons.bottomArrowGray} className="w-[24px] h-[24px]" />
         </View>
-        <View className="bg-[#DDFBEF] rounded-b-3xl p-2 flex flex-row items-center justify-center">
-          <Image source={icons.bestOfferGreen} className="w-[24px] h-[24px]" />
-          <Text className="text-[#2DAD78]">₹25 Saved ! on this order</Text>
+        <View className="bg-[#DDFBEF] mt-4 space-x-2 rounded-b-3xl p-2 flex flex-row items-center justify-center">
+          <Image source={icons.bestOfferGreen} className="w-[20px] h-[20px]" />
+          <Text className="text-[#2DAD78] font-proxima-nova-bold">
+            ₹25 Saved !{" "}
+            <Text className="font-proxima-nova-regular">on this order</Text>
+          </Text>
         </View>
       </View>
       <ScrollView className="px-4">
