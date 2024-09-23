@@ -84,11 +84,12 @@ const OtpVerification = ({route, navigation}) => {
   const handleOtpSubmit = async () => {
     const response = await Apis.verifyOtp(
       mobileNumber,
-      "e568d8ee-9167-4f2b-8df7-e82ab8209194",
-      "5336",
+      customerId,
+      otp,
       verificationId,
     );
-    if (response.responseCode == 200) {
+    console.log(response);
+    if (response?.responseCode == 200) {
       navigation("/HomeScreen");
     }
   };

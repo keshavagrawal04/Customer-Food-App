@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {Account, Cart, Home, Orders, Restaurants} from "./Tabs";
+import {Account, Cart, Home, Reorder, Restaurants} from "./Tabs";
 import {Image, View, Text} from "react-native";
 import icons from "../assets/icons";
 
@@ -113,7 +113,7 @@ const HomeScreen = () => {
       />
       <Tab.Screen
         name="Orders"
-        component={Orders}
+        component={Reorder}
         options={{
           tabBarIcon: ({focused}) => (
             <View className="flex items-center">

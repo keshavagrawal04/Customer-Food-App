@@ -24,8 +24,11 @@ import vegPercentage from "./vegPercentage.png";
 import offer from "./offer.png";
 import dish from "./dish.png";
 import tip from "./tip.png";
+import reorderImage from "./reorderImage.png";
+import emptyBox from "./emptyBox.png";
 
 const images = {
+  reorderImage,
   dosa,
   salad,
   coffee,
@@ -52,6 +55,6 @@ const images = {
   offer,
   dish,
   tip,
+  emptyBox,
 };
-
 export default images;

@@ -12,17 +12,20 @@ export const verifyOtp = async (
     },
   };
 
-  fetch(
-    `https://cpaas.messagecentral.com/verification/v3/validateOtp?countryCode=91&mobileNumber=${mobileNumber}&verificationId=${verificationId}&customerId=${customerId}&code=${otp}`,
-    options,
-  )
-    .then(response => {
-      console.log(response);
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.text();
-    })
-    .then(data => console.log("Data: ", data))
-    .catch(error => console.error("Error:", error));
+  try {
+    const response = await fetch(
+      `https://cpaas.messagecentral.com/verification/v3/validateOtp?countryCode=91&mobileNumber=${mobileNumber}&verificationId=${verificationId}&customerId=${customerId}&code=${otp}`,
+      options,
+    );
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
 };

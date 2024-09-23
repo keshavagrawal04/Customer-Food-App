@@ -46,6 +46,8 @@ import directions from "./directions.png";
 import backArrowDark from "./backArrowDark.png";
 import bottomArrowGray from "./bottomArrowGray.png";
 import bestOfferGreen from "./bestOfferGreen.png";
+import closePrimaryFill from "./closePrimaryFill.png";
+import offerTagPrimary from "./offerTagPrimary.png";
 
 const icons = {
   location,
@@ -96,6 +98,8 @@ const icons = {
   backArrowDark,
   bottomArrowGray,
   bestOfferGreen,
+  closePrimaryFill,
+  offerTagPrimary,
 };
 
 export default icons;

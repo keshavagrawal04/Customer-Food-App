@@ -1,22 +1,85 @@
-import {ScrollView, Text, TouchableOpacity, View, Image} from "react-native";
+import {
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
 import React, {useState} from "react";
 import icons from "../../assets/icons";
 import images from "../../assets/images";
+import {CustomButton} from "../../components/Buttons";
+import RazorpayCheckout from "react-native-razorpay";
 
 const Checkout = ({navigation}) => {
+  const KEY = "rzp_test_7HHGLjjZbxoxdt";
   const [type, setType] = useState("standard");
   const [selectedTip, setSelectedTip] = useState(20);
+  const [checked, setChecked] = useState(false);
+  const [selectedInstruction, setSelectedInstruction] = useState("");
+  const [total, setTotal] = useState(356.9);
 
   const tipOptions = [20, 30, 50, "Other"];
+
+  const instructionOptions = [
+    {
+      id: "avoidBell",
+      icon: icons.doorBell,
+      label1: "Avoid",
+      label2: "ringing bell",
+    },
+    {
+      id: "leaveAtDoor",
+      icon: icons.door,
+      label1: "Leave at",
+      label2: "the door",
+    },
+    {
+      id: "directionsToReach",
+      icon: icons.directions,
+      label1: "Directions",
+      label2: "to reach",
+    },
+  ];
+
+  const handlePayment = () => {
+    let options = {
+      description: "Food App",
+      image:
+        "https://res.cloudinary.com/di5uhy426/image/upload/v1726910021/uuqdhd8rnlcdvvwk5oyc.png",
+      currency: "INR",
+      key: KEY,
+      amount: total * 100,
+      name: "Customer 1",
+      order_id: "",
+      prefill: {
+        email: "xyz@example.com",
+        contact: "9191919191",
+        name: "Person Name",
+      },
+      theme: {color: "#rgba(253, 99, 31, 1)"},
+    };
+    RazorpayCheckout.open(options);
+    // RazorpayCheckout.open(options)
+    //   .then(data => {
+    //     alert(`Success: ${data.razorpay_payment_id}`);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     alert(`Error: ${error.code} | ${error.description}`);
+    //   });
+  };
 
   return (
     <ScrollView className="h-full" style={{backgroundColor: "#EFEBEB"}}>
       <View className="bg-white rounded-b-3xl px-2 py-2">
-        <View className="flex flex-row justify-between">
+        <View className="flex flex-row justify-between pt-2">
           <Image source={icons.backArrow} className="w-[24px] h-[24px]" />
           <View>
-            <Text className="text-black font-proxima-nova-regular text-base">
-              20-25 mins to Home | 75, chhatri...
+            <Text className="text-black font-proxima-nova-bold text-base">
+              20-25 mins to Home |{" "}
+              <Text className="font-proxima-nova-regular">75, chhatri...</Text>
             </Text>
             <Text className="text-[#FFC742] font-proxima-nova-bold">
               Delivering Superfast!
@@ -24,7 +87,7 @@ const Checkout = ({navigation}) => {
           </View>
           <Image source={icons.bottomArrowGray} className="w-[24px] h-[24px]" />
         </View>
-        <View className="bg-[#DDFBEF] mt-4 space-x-2 rounded-b-3xl p-2 flex flex-row items-center justify-center">
+        <View className="bg-[#DDFBEF] mt-4 space-x-2 rounded-b-3xl px-2 py-3 flex flex-row items-center justify-center">
           <Image source={icons.bestOfferGreen} className="w-[20px] h-[20px]" />
           <Text className="text-[#2DAD78] font-proxima-nova-bold">
             ₹25 Saved !{" "}
@@ -111,7 +174,13 @@ const Checkout = ({navigation}) => {
             Offers & Benefits
           </Text>
           <View className="bg-white rounded-xl">
-            <View className="border rounded-t-xl px-4 py-5">
+            <View
+              className="rounded-t-xl px-4 py-5"
+              style={{
+                borderWidth: 2,
+                borderColor: "#00000033",
+                borderStyle: "dashed",
+              }}>
               <View className="flex flex-row items-center justify-between">
                 <Text className="text-black font-montserrat-bold pb-2">
                   Unlock TRYNEW
@@ -131,7 +200,7 @@ const Checkout = ({navigation}) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View>
+        <View className="py-3">
           <Text className="text-black font-montserrat-bold text-lg my-3">
             Say Thanks with Tip!
           </Text>
@@ -145,25 +214,87 @@ const Checkout = ({navigation}) => {
                 <Image source={images.tip} className="w-[55px] h-[55px]" />
               </View>
             </View>
-            <View className="flex flex-row justify-evenly mt-5 items-center">
+            <View className="flex flex-row justify-between mt-5 items-center">
               {tipOptions?.map((tip, index) => (
                 <TouchableOpacity
                   key={index}
                   onPress={() => {
                     setSelectedTip(tip);
                   }}
-                  className={`border-2 border-black-light px-5 py-4 rounded-lg ${
+                  className={`border-2 border-black-light flex flex-row space-x-2 items-center px-5 py-4 rounded-lg ${
                     tip == selectedTip &&
                     "border-primary-orange bg-[#fd631f1a] text-primary-orange"
                   }`}>
-                  <Text
-                    className={`font-proxima-nova-regular ${
-                      tip == selectedTip ? "text-primary-orange" : "text-black"
-                    }`}>
-                    &#8377; {tip}
-                  </Text>
+                  {tip == "Other" ? (
+                    <>
+                      <Text
+                        className={`font-proxima-nova-regular ${
+                          tip == selectedTip
+                            ? "text-primary-orange"
+                            : "text-black"
+                        }`}>
+                        {tip}
+                      </Text>
+                      {tip === selectedTip && (
+                        <Image
+                          source={icons.closePrimaryFill}
+                          className="h-[16px] w-[16px]"
+                        />
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <Text
+                        className={`font-proxima-nova-regular ${
+                          tip == selectedTip
+                            ? "text-primary-orange"
+                            : "text-black"
+                        }`}>
+                        &#8377; {tip}
+                      </Text>
+                      {tip === selectedTip && (
+                        <Image
+                          source={icons.closePrimaryFill}
+                          className="h-[16px] w-[16px]"
+                        />
+                      )}
+                    </>
+                  )}
                 </TouchableOpacity>
               ))}
+            </View>
+            <View
+              className={`border-b-[1px] border-[#00000080] ${
+                !(selectedTip === "Other") && "mt-3"
+              }`}>
+              {selectedTip === "Other" && (
+                <TextInput
+                  placeholderTextColor={"black"}
+                  placeholder="₹ Enter Tip Amount"
+                  className={`text-black text-base font-proxima-nova-regular rounded-xl`}
+                />
+              )}
+            </View>
+            <View>
+              <TouchableOpacity
+                className="flex flex-row gap-2 items-center pt-3"
+                onPress={() => {
+                  setChecked(prev => !prev);
+                }}>
+                <View
+                  className={`w-[14px] h-[14px] rounded-sm ${
+                    checked
+                      ? "bg-primary-orange"
+                      : "bg-white border border-[#00000033]"
+                  }`}>
+                  {checked && (
+                    <Image source={icons.whiteTick} className="w-full h-full" />
+                  )}
+                </View>
+                <Text className="text-black font-proxima-nova-regular text-base">
+                  Add this tip automatically to future orders.
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -175,52 +306,103 @@ const Checkout = ({navigation}) => {
             horizontal
             showsHorizontalScrollIndicator={false}
             className="flex flex-row gap-2">
-            <View className="bg-white rounded-3xl p-3 w-[100px]">
-              <Image source={icons.doorBell} className="h-[28px] w-[28px]" />
-              <Text className="text-black-light font-proxima-nova-regular">
-                Avoid
-              </Text>
-              <Text className="text-black-light font-proxima-nova-regular">
-                ringing bell
-              </Text>
-            </View>
-            <View className="bg-white rounded-3xl p-3 w-[100px]">
-              <Image source={icons.door} className="h-[28px] w-[28px]" />
-              <Text className="text-black-light font-proxima-nova-regular">
-                Leave at
-              </Text>
-              <Text className="text-black-light font-proxima-nova-regular">
-                the door
-              </Text>
-            </View>
-            <View className="bg-white rounded-3xl p-3 w-[100px]">
-              <Image source={icons.directions} className="h-[28px] w-[28px]" />
-              <Text className="text-black-light font-proxima-nova-regular">
-                Directions
-              </Text>
-              <Text className="text-black-light font-proxima-nova-regular">
-                to reach
-              </Text>
-            </View>
-            <View className="bg-white rounded-3xl p-3 w-[100px]">
-              <Image source={icons.door} className="h-[28px] w-[28px]" />
-              <Text className="text-black-light font-proxima-nova-regular">
-                Leave at
-              </Text>
-              <Text className="text-black-light font-proxima-nova-regular">
-                the door
-              </Text>
-            </View>
-            <View className="bg-white rounded-3xl p-3 w-[100px]">
-              <Image source={icons.directions} className="h-[28px] w-[28px]" />
-              <Text className="text-black-light font-proxima-nova-regular">
-                Directions
-              </Text>
-              <Text className="text-black-light font-proxima-nova-regular">
-                to reach
-              </Text>
-            </View>
+            {instructionOptions?.map(instruction => (
+              <TouchableOpacity
+                key={instruction.id}
+                onPress={() => {
+                  setSelectedInstruction(instruction.id);
+                }}
+                className={`rounded-3xl border-2 px-3 py-4 w-[100px] ${
+                  !(instruction.id === selectedInstruction)
+                    ? "bg-white border-white"
+                    : "bg-[#FD631F1A] border-primary-orange"
+                }`}>
+                {instruction.id === selectedInstruction && (
+                  <Image
+                    source={icons.closePrimaryFill}
+                    className="h-[16px] w-[16px] absolute right-2 top-2"
+                  />
+                )}
+                <Image
+                  source={instruction.icon}
+                  className="h-[28px] w-[28px]"
+                />
+                <Text className="text-black-light font-proxima-nova-regular pt-2">
+                  {instruction.label1}
+                </Text>
+                <Text className="text-black-light font-proxima-nova-regular">
+                  {instruction.label2}
+                </Text>
+              </TouchableOpacity>
+            ))}
           </ScrollView>
+        </View>
+        <View>
+          <Text className="my-4 text-black font-montserrat-bold text-lg">
+            Bill Details
+          </Text>
+          <View className="bg-white rounded-2xl px-4 py-4">
+            <View className="flex flex-row justify-between">
+              <Text className="text-[#3C3A45B2] font-proxima-nova-regular">
+                Dal Makhani
+              </Text>
+              <Text className="text-[#3C3A45] font-proxima-nova-regular">
+                ₹ 320
+              </Text>
+            </View>
+            <View className="flex flex-row justify-between pt-4 mb-4">
+              <Text className="text-[#3C3A45B2] font-proxima-nova-regular underline">
+                Delivery Fee | 3.9Kms
+              </Text>
+              <Text className="text-secondary-gray font-proxima-nova-regular">
+                ₹23.00
+              </Text>
+            </View>
+            <Text className="text-[#3C3A4580] font-proxima-nova-regular w-[70%]">
+              Free delivery applicable on orders above ₹400
+            </Text>
+            <View className="flex flex-row justify-between pt-2 mb-4">
+              <Text className="text-[#3C3A45B2] font-proxima-nova-regular">
+                Extra Discount for you
+              </Text>
+              <Text className="text-secondary-green font-proxima-nova-regular">
+                -₹ 25.00
+              </Text>
+            </View>
+            <View className="flex flex-row justify-between pt-2 border-t-[1px] border-[#0000001A] mb-4">
+              <Text className="text-[#3C3A45B2] font-proxima-nova-regular">
+                Delivery Tip
+              </Text>
+              <Text className="text-primary-orange font-proxima-nova-regular">
+                Add tip
+              </Text>
+            </View>
+            <View className="flex flex-row justify-between mb-4">
+              <Text className="text-[#3C3A45B2] font-proxima-nova-regular underline">
+                Platform Fee
+              </Text>
+              <Text className="text-[#3C3A45] font-proxima-nova-regular">
+                ₹ 5.00
+              </Text>
+            </View>
+            <View className="flex flex-row justify-between mb-4">
+              <Text className="text-[#3C3A45B2] font-proxima-nova-regular underline">
+                GST and Restaurant Charges
+              </Text>
+              <Text className="text-[#3C3A45] font-proxima-nova-regular">
+                ₹ 8.90
+              </Text>
+            </View>
+
+            <View className="flex flex-row justify-between py-4 border-t-[1px] border-[#0000001A]">
+              <Text className="text-[#3C3A45] font-proxima-nova-bold">
+                To Pay
+              </Text>
+              <Text className="text-[#3C3A45] font-proxima-nova-bold">
+                ₹ 356.9
+              </Text>
+            </View>
+          </View>
         </View>
         <View className="">
           <Text className="my-4 text-black font-montserrat-bold text-lg">
@@ -244,6 +426,14 @@ const Checkout = ({navigation}) => {
               </Text>
             </TouchableOpacity>
           </View>
+        </View>
+        <View className="my-4">
+          <CustomButton
+            variant="secondary-green-fill"
+            title={`Pay |  ₹ ${total}`}
+            containerStyles={`py-5 rounded-full`}
+            handleOnPress={handlePayment}
+          />
         </View>
       </ScrollView>
     </ScrollView>
