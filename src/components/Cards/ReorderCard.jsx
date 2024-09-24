@@ -51,7 +51,7 @@ const ReorderCard = ({item}) => {
       </View>
       <View className="py-5">
         {item?.dishes.map(dish => (
-          <ReorderItem name={dish?.name} price={dish?.price} />
+          <ReorderItem key={dish.name} name={dish?.name} price={dish?.price} />
         ))}
       </View>
     </View>

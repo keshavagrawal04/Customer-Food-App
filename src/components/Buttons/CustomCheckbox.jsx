@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, TouchableOpacity, StyleSheet, Image} from "react-native";
 import icons from "../../assets/icons";
 
-const CustomCheckbox = ({label, checked = false, onChange}) => {
+const CustomCheckbox = ({label, checked = false, onChange, start = true}) => {
   return (
     <TouchableOpacity
       className="flex flex-row my-5 gap-2 items-center"

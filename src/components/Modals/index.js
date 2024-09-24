@@ -5,6 +5,7 @@ import FilterModal from "./FilterModal";
 import OfferModal from "./OfferModal";
 import DishDetailsModal from "./DishDetailsModal";
 import CustomizeOrderModal from "./CustomizeOrderModal";
+import ReorderModal from "./ReorderModal";
 
 export {
   PermissionModal,
@@ -14,4 +15,5 @@ export {
   OfferModal,
   DishDetailsModal,
   CustomizeOrderModal,
+  ReorderModal,
 };

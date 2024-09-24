@@ -3,9 +3,11 @@ import React, {useState} from "react";
 import icons from "../../assets/icons";
 import {ReorderCard} from "../../components/Cards";
 import images from "../../assets/images";
+import {ReorderModal} from "../../components/Modals";
 
 const Reorder = () => {
   const [activeFilter, setActiveFilter] = useState([]);
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleFilterSelect = value => {
     if (activeFilter.length == 0)
@@ -123,6 +125,12 @@ const Reorder = () => {
         ))}
         <View className="mt-5" />
       </ScrollView>
+      <ReorderModal
+        visible={isOpen}
+        handleClose={() => {
+          setIsOpen(false);
+        }}
+      />
     </View>
   );
 };

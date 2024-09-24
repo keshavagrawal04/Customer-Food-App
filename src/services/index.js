@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://192.168.31.247:8000/api/",
+  baseUrl: "https://food-delivery-user.vercel.app/api/",
   // prepareHeaders: async headers => {
   //   const userData = await AsyncStorage.getItem("user");
   //   const data = JSON.parse(userData);
