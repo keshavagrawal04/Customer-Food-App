@@ -1,8 +1,7 @@
 import React from "react";
 import {Modal, View, Text, TouchableWithoutFeedback, Image} from "react-native";
 import icons from "../../assets/icons";
-import CustomRadioButton from "../Buttons/CustomRadioButton";
-import {CustomButton} from "../Buttons";
+import {CustomButton, CustomRadioButton} from "../Buttons";
 
 const VegModeModal = ({
   visible,
@@ -34,12 +33,14 @@ const VegModeModal = ({
                 value={"vegDishes"}
                 selected={vegMode}
                 onSelect={setVegMode}
+                color={"secondary-green"}
               />
               <CustomRadioButton
                 label={"Pure Veg restaurants only"}
                 value={"vegRestaurants"}
                 selected={vegMode}
                 onSelect={setVegMode}
+                color={"secondary-green"}
               />
             </View>
             <CustomButton

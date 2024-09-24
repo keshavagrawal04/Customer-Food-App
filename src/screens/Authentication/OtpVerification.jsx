@@ -12,9 +12,11 @@ import {
 import {CustomButton} from "../../components/Buttons";
 import {OtpInput} from "react-native-otp-entry";
 import {startOtpListener, removeListener} from "react-native-otp-verify";
+import {Apis} from "../../utils";
+import {v4 as uuid} from "uuid";
 
 const OtpVerification = ({route, navigation}) => {
-  const {mobileNumber} = route.params;
+  const {mobileNumber, verificationId, customerId} = route.params;
   const [otp, setOtp] = useState("");
   const [secondsLeft, setSecondsLeft] = useState(60);
   const [loading, setLoading] = useState(false);
@@ -79,6 +81,19 @@ const OtpVerification = ({route, navigation}) => {
     setLoading(false);
   };
 
+  const handleOtpSubmit = async () => {
+    const response = await Apis.verifyOtp(
+      mobileNumber,
+      customerId,
+      otp,
+      verificationId,
+    );
+    console.log(response);
+    if (response?.responseCode == 200) {
+      navigation("/HomeScreen");
+    }
+  };
+
   return (
     <View className="px-4 mt-16">
       <Text className="text-secondary-gray font-montserrat-bold text-2xl">
@@ -89,12 +104,12 @@ const OtpVerification = ({route, navigation}) => {
       </Text>
       <View className="my-8">
         <OtpInput
-          numberOfDigits={6}
+          numberOfDigits={4}
           value={otp}
           focusColor="rgba(253, 99, 31, 1)"
           focusStickBlinkingDuration={500}
           onTextChange={text => console.log("Text Change:", text)}
-          onFilled={text => console.log("OTP Filled:", text)}
+          onFilled={text => setOtp(text)}
           textInputProps={{
             accessibilityLabel: "One-Time Password",
           }}
@@ -102,6 +117,7 @@ const OtpVerification = ({route, navigation}) => {
             pinCodeContainerStyle: styles.pinCodeContainer,
             pinCodeTextStyle: styles.pinCodeText,
             focusedPinCodeContainerStyle: styles.activePinCodeContainer,
+            containerStyle: styles.container,
           }}
         />
         {secondsLeft > 0 && (
@@ -118,7 +134,7 @@ const OtpVerification = ({route, navigation}) => {
         containerStyles={"py-4 rounded-full mt-5"}
         textStyles={"text-center text-lg"}
         handleOnPress={() => {
-          navigation.navigate("LocationAccess");
+          handleOtpSubmit();
         }}
       />
       <View className="mt-6">
@@ -155,5 +171,10 @@ const styles = StyleSheet.create({
   activePinCodeContainer: {
     borderColor: "rgba(253, 99, 31, 1)",
     borderWidth: 1,
+  },
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    gap: 25,
   },
 });

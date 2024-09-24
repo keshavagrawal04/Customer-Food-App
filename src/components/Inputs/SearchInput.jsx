@@ -12,6 +12,7 @@ const SearchInput = ({
   handleMicrophonePress,
   setSearchTerm,
   searchTerm = "",
+  isMic = true,
 }) => {
   return (
     <TouchableOpacity
@@ -25,7 +26,7 @@ const SearchInput = ({
       </TouchableOpacity>
       <TextInput
         editable={isEdit}
-        className="text-secondary-gray-light font-proxima-nova-regular text-lg"
+        className="text-secondary-gray-light w-full font-proxima-nova-regular text-lg"
         placeholderTextColor="#00000080"
         placeholder={placeholder}
         onChangeText={value => {
@@ -43,12 +44,14 @@ const SearchInput = ({
           <Image source={icons.cancel} className="w-[26px] h-[26px]" />
         </TouchableOpacity>
       )}
-      <TouchableOpacity
-        className="absolute flex flex-row right-4 border-l-[1px] border-[#00000033]"
-        onPress={handleMicrophonePress}>
-        <Text>{"  "}</Text>
-        <Image source={icons.microphone} className="w-[26px] h-[26px]" />
-      </TouchableOpacity>
+      {isMic && (
+        <TouchableOpacity
+          className="absolute flex flex-row right-4 border-l-[1px] border-[#00000033]"
+          onPress={handleMicrophonePress}>
+          <Text>{"  "}</Text>
+          <Image source={icons.microphone} className="w-[26px] h-[26px]" />
+        </TouchableOpacity>
+      )}
     </TouchableOpacity>
   );
 };

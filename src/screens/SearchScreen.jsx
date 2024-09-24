@@ -7,8 +7,9 @@ import {RestaurantCard} from "../components/Cards";
 
 const SearchScreen = ({navigation}) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isRestaurants, setIsRestaurants] = useState(false);
+  const [isRestaurants, setIsRestaurants] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState("filter");
+  const searchNotFound = true;
 
   const categories1 = [
     {name: "Chinese", image: images.chinese},
@@ -91,6 +92,14 @@ const SearchScreen = ({navigation}) => {
         setSearchTerm={setSearchTerm}
         searchTerm={searchTerm}
       />
+      {searchTerm && searchNotFound && (
+        <View className="w-full flex items-center mt-10 justify-center">
+          <Image source={images.noResultFound} className="w-full h-[330px]" />
+          <Text className="text-black text-base text-center mt-4 font-proxima-nova-regular">
+            No Result Found
+          </Text>
+        </View>
+      )}
       {!searchTerm ? (
         <View className="mt-4">
           <Text className="text-center text-lg font-montserrat-semibold text-[#00000080]">

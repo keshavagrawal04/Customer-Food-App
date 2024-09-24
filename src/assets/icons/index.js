@@ -33,6 +33,21 @@ import microphoneLight from "./microphoneLight.png";
 import forwardPrimaryArrow from "./forwardPrimaryArrow.png";
 import cartActive from "./cartActive.png";
 import dropdownUpArrow from "./dropdownUpArrow.png";
+import cancelDark from "./cancelDark.png";
+import whiteTick from "./whiteTick.png";
+import closeFill from "./closeFill.png";
+import closeWhiteFill from "./closeWhiteFill.png";
+import addGreen from "./addGreen.png";
+import oneStar from "./oneStar.png";
+import halfStar from "./halfStar.png";
+import door from "./door.png";
+import doorBell from "./doorBell.png";
+import directions from "./directions.png";
+import backArrowDark from "./backArrowDark.png";
+import bottomArrowGray from "./bottomArrowGray.png";
+import bestOfferGreen from "./bestOfferGreen.png";
+import closePrimaryFill from "./closePrimaryFill.png";
+import offerTagPrimary from "./offerTagPrimary.png";
 
 const icons = {
   location,
@@ -70,6 +85,21 @@ const icons = {
   forwardPrimaryArrow,
   cartActive,
   dropdownUpArrow,
+  cancelDark,
+  whiteTick,
+  closeFill,
+  closeWhiteFill,
+  addGreen,
+  oneStar,
+  halfStar,
+  door,
+  doorBell,
+  directions,
+  backArrowDark,
+  bottomArrowGray,
+  bestOfferGreen,
+  closePrimaryFill,
+  offerTagPrimary,
 };
 
 export default icons;

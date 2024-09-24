@@ -1,28 +1,50 @@
 import React from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 
-const CustomRadioButton = ({label, value, selected, onSelect}) => {
+const CustomRadioButton = ({
+  label,
+  value,
+  selected,
+  onSelect,
+  start,
+  color,
+}) => {
   return (
     <TouchableOpacity
       style={styles.radioButtonContainer}
+      className={`${start && "flex flex-row justify-between items-center"}`}
       onPress={() => onSelect(value)}>
+      {start && (
+        <View className="flex flex-row gap-3">
+          <View className="border border-secondary-green h-[12px] w-[12px] p-2 flex justify-center items-center rounded-sm">
+            <View className="h-[10px] w-[10px] bg-secondary-green rounded-full" />
+          </View>
+          <Text
+            className="font-montserrat-regular"
+            style={styles.radioButtonLabel}>
+            {label}
+          </Text>
+        </View>
+      )}
       <View
         className={`${
-          selected === value ? "border-secondary-green" : "border-black-light"
+          selected === value ? `border-${color}` : "border-black-light"
         }`}
         style={styles.radioButton}>
         {selected === value && (
           <View
-            className={`${
-              selected === value ? "bg-secondary-green" : "bg-black-light"
-            }`}
+            className={`${selected === value && `bg-${color}`}`}
             style={styles.radioButtonInner}
           />
         )}
       </View>
-      <Text className="font-montserrat-regular" style={styles.radioButtonLabel}>
-        {label}
-      </Text>
+      {!start && (
+        <Text
+          className="font-montserrat-regular"
+          style={styles.radioButtonLabel}>
+          {label}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };

@@ -7,7 +7,9 @@ import {
   LocationAccess,
   Location,
 } from "../screens/Authentication";
-import {Splash, HomeScreen, SearchScreen} from "../screens";
+import {Splash, HomeScreen, SearchScreen, VegFilterPage} from "../screens";
+import {Checkout, Policy} from "../screens/Delivery";
+import {ReOrders} from "../screens/Reorder";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +29,10 @@ const Navigation = () => {
         <Stack.Screen name="Location" component={Location} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="VegFilterPage" component={VegFilterPage} />
+        <Stack.Screen name="Checkout" component={Checkout} />
+        <Stack.Screen name="Policy" component={Policy} />
+        {/* <Stack.Screen name="ReOrders" component={ReOrders} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

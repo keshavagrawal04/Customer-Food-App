@@ -4,8 +4,13 @@ import {useFormik} from "formik";
 import {FloatingLabelTextInput} from "../../components/Inputs";
 import {CustomButton} from "../../components/Buttons";
 import * as Yup from "yup";
+import {useLoginMutation} from "../../services/api/authentication";
+import {FullScreenLoader} from "../../components/Loaders";
+import uuid from "react-native-uuid";
 
 const Login = ({navigation}) => {
+  const [login, {isLoading}] = useLoginMutation();
+
   const formik = useFormik({
     initialValues: {mobile_number: ""},
     validationSchema: Yup.object({
@@ -16,11 +21,20 @@ const Login = ({navigation}) => {
         .max(10, "Mobile number must be at most 10 digits"),
     }),
     onSubmit: async values => {
+      const userData = {user_mobile_number: values.mobile_number};
+      const response = await login(userData).unwrap();
+      const customerId = uuid.v4(); 
+
+      console.log(response);
       navigation.navigate("OtpVerification", {
         mobileNumber: values.mobile_number,
+        customerId: customerId,
+        verificationId: response?.verification_id,
       });
     },
   });
+
+  if (isLoading) return <FullScreenLoader />;
 
   return (
     <View className="px-4 mt-16">

@@ -20,6 +20,7 @@
 		B8510ED1521842A9A9555166 /* Proxima-Nova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBDA0A6C0282433C845067EE /* Proxima-Nova-Regular.ttf */; };
 		47ED23764C654FEC9C8CAA79 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30F7F2155C0C443786E98F3F /* Montserrat-Regular.ttf */; };
 		DD32EC37218F4E908AA12805 /* Montserrat-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6E55E84A534EE4ADAFEC08 /* Montserrat-Semibold.ttf */; };
+		4E1DA53BAB48405D9EB8C7F5 /* Proxima-Nova-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC2B8F33BB48D9A4C16653 /* Proxima-Nova-Regular-Italic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		EBDA0A6C0282433C845067EE /* Proxima-Nova-Regular.ttf */ = {isa = PBXFileReference; name = "Proxima-Nova-Regular.ttf"; path = "../src/assets/fonts/Proxima-Nova-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		30F7F2155C0C443786E98F3F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FC6E55E84A534EE4ADAFEC08 /* Montserrat-Semibold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Semibold.ttf"; path = "../src/assets/fonts/Montserrat-Semibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7FAC2B8F33BB48D9A4C16653 /* Proxima-Nova-Regular-Italic.otf */ = {isa = PBXFileReference; name = "Proxima-Nova-Regular-Italic.otf"; path = "../src/assets/fonts/Proxima-Nova-Regular-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				EBDA0A6C0282433C845067EE /* Proxima-Nova-Regular.ttf */,
 				30F7F2155C0C443786E98F3F /* Montserrat-Regular.ttf */,
 				FC6E55E84A534EE4ADAFEC08 /* Montserrat-Semibold.ttf */,
+				7FAC2B8F33BB48D9A4C16653 /* Proxima-Nova-Regular-Italic.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				B8510ED1521842A9A9555166 /* Proxima-Nova-Regular.ttf in Resources */,
 				47ED23764C654FEC9C8CAA79 /* Montserrat-Regular.ttf in Resources */,
 				DD32EC37218F4E908AA12805 /* Montserrat-Semibold.ttf in Resources */,
+				4E1DA53BAB48405D9EB8C7F5 /* Proxima-Nova-Regular-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

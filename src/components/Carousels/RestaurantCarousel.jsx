@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import {
   View,
   FlatList,
@@ -14,10 +14,25 @@ import icons from "../../assets/icons";
 
 const {width} = Dimensions.get("window");
 
-const RestaurantCarousel = ({dishes, restaurant}) => {
+const RestaurantCarousel = ({dishes}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const flatListRef = useRef(null);
+
+  const AUTO_SCROLL_INTERVAL = 3000;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % dishes.length;
+      flatListRef.current?.scrollToIndex({
+        index: nextIndex,
+        animated: true,
+      });
+      setCurrentIndex(nextIndex);
+    }, AUTO_SCROLL_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, dishes.length]);
 
   const onViewableItemsChanged = ({viewableItems}) => {
     if (viewableItems.length > 0) {

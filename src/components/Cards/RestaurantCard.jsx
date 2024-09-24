@@ -1,6 +1,5 @@
 import {Text, View, Image, TouchableOpacity, ScrollView} from "react-native";
 import React from "react";
-import images from "../../assets/images";
 import icons from "../../assets/icons";
 import RestaurantCarousel from "../Carousels/RestaurantCarousel";
 
