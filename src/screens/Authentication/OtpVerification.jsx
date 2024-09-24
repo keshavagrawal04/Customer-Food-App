@@ -88,9 +88,8 @@ const OtpVerification = ({route, navigation}) => {
       otp,
       verificationId,
     );
-    console.log(response);
-    if (response?.responseCode == 200) {
-      navigation("/HomeScreen");
+    if (response?.data?.responseCode == 200) {
+      navigation.navigate("HomeScreen");
     }
   };
 

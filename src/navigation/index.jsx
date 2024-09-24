@@ -21,7 +21,7 @@ const Navigation = () => {
           headerShown: false,
           contentStyle: {backgroundColor: "#FFFFFF"},
         }}
-        initialRouteName="HomeScreen">
+        initialRouteName="Login">
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="OtpVerification" component={OtpVerification} />
