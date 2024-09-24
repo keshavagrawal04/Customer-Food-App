@@ -48,6 +48,8 @@ import bottomArrowGray from "./bottomArrowGray.png";
 import bestOfferGreen from "./bestOfferGreen.png";
 import closePrimaryFill from "./closePrimaryFill.png";
 import offerTagPrimary from "./offerTagPrimary.png";
+import trophy from "./trophy.png";
+import bicycle from "./bicycle.png";
 
 const icons = {
   location,
@@ -100,6 +102,8 @@ const icons = {
   bestOfferGreen,
   closePrimaryFill,
   offerTagPrimary,
+  trophy,
+  bicycle,
 };
 
 export default icons;
