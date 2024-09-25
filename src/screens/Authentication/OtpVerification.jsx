@@ -13,13 +13,14 @@ import {CustomButton} from "../../components/Buttons";
 import {OtpInput} from "react-native-otp-entry";
 import {startOtpListener, removeListener} from "react-native-otp-verify";
 import {Apis} from "../../utils";
-import {v4 as uuid} from "uuid";
+import {FullScreenLoader} from "../../components/Loaders";
 
 const OtpVerification = ({route, navigation}) => {
   const {mobileNumber, verificationId, customerId} = route.params;
   const [otp, setOtp] = useState("");
   const [secondsLeft, setSecondsLeft] = useState(60);
   const [loading, setLoading] = useState(false);
+  const [isLoadingVerification, setIsLoadingVerification] = useState(false);
 
   useEffect(() => {
     const requestSmsPermission = async () => {
@@ -82,16 +83,20 @@ const OtpVerification = ({route, navigation}) => {
   };
 
   const handleOtpSubmit = async () => {
+    setIsLoadingVerification(true);
     const response = await Apis.verifyOtp(
       mobileNumber,
       customerId,
       otp,
       verificationId,
     );
+    setIsLoadingVerification(false);
     if (response?.data?.responseCode == 200) {
       navigation.navigate("HomeScreen");
     }
   };
+
+  if (isLoadingVerification) return <FullScreenLoader />;
 
   return (
     <View className="px-4 mt-16">

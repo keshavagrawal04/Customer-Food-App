@@ -1,4 +1,11 @@
-import {StyleSheet, TextInput, Animated, Easing, Text} from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  Animated,
+  Easing,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import React, {useEffect, useRef} from "react";
 import {getIn} from "formik";
 
@@ -12,6 +19,9 @@ const FloatingLabelTextInput = ({
   inputStyles,
   isTextArea = false,
   numberOfLines = undefined,
+  edit = true,
+  setEdit,
+  isEdit = false,
 }) => {
   const transY = useRef(new Animated.Value(0)).current;
   const borderWidth = useRef(new Animated.Value(1)).current;
@@ -101,7 +111,7 @@ const FloatingLabelTextInput = ({
           </Animated.Text>
         </Animated.View>
         <TextInput
-          editable={true}
+          editable={edit}
           blurOnSubmit
           autoCapitalize={`none`}
           onFocus={handleOnFocus}
@@ -114,8 +124,19 @@ const FloatingLabelTextInput = ({
           multiline={isTextArea}
           numberOfLines={numberOfLines}
         />
+        {!edit && (
+          <TouchableOpacity
+            className="absolute right-4 top-[10px]"
+            onPress={() => {
+              setEdit(prev => ({...prev, [id]: true}));
+            }}>
+            <Text className="text-primary-orange font-proxima-nova-bold text-lg">
+              EDIT
+            </Text>
+          </TouchableOpacity>
+        )}
       </Animated.View>
-      {getIn(formik.touched, id) && getIn(formik.errors, id) ? (
+      {!edit && getIn(formik.touched, id) && getIn(formik.errors, id) ? (
         <Text className="h-[22px] mb-3 pt-1 px-2 text-error text-md font-proxima-nova-regular">
           {getIn(formik.errors, id)}
         </Text>

@@ -9,7 +9,7 @@ import {
 } from "../screens/Authentication";
 import {Splash, HomeScreen, SearchScreen, VegFilterPage} from "../screens";
 import {Checkout, Policy} from "../screens/Delivery";
-import {ReOrders} from "../screens/Reorder";
+import {EditProfile, LogoutOptions} from "../screens/Account";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +21,7 @@ const Navigation = () => {
           headerShown: false,
           contentStyle: {backgroundColor: "#FFFFFF"},
         }}
-        initialRouteName="Login">
+        initialRouteName="HomeScreen">
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="OtpVerification" component={OtpVerification} />
@@ -32,6 +32,8 @@ const Navigation = () => {
         <Stack.Screen name="VegFilterPage" component={VegFilterPage} />
         <Stack.Screen name="Checkout" component={Checkout} />
         <Stack.Screen name="Policy" component={Policy} />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen name="LogoutOptions" component={LogoutOptions} />
         {/* <Stack.Screen name="ReOrders" component={ReOrders} /> */}
       </Stack.Navigator>
     </NavigationContainer>

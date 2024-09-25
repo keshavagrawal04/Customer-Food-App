@@ -50,8 +50,14 @@ import closePrimaryFill from "./closePrimaryFill.png";
 import offerTagPrimary from "./offerTagPrimary.png";
 import trophy from "./trophy.png";
 import bicycle from "./bicycle.png";
+import primaryForwardArrow from "./primaryForwardArrow.png";
+import favourites from "./favourites.png";
+import settings from "./settings.png";
+import hiddenRestaurants from "./hiddenRestaurants.png";
+import forwardArrowDark from "./forwardArrowDark.png";
 
 const icons = {
+  primaryForwardArrow,
   location,
   circle1,
   circle2,
@@ -104,6 +110,10 @@ const icons = {
   offerTagPrimary,
   trophy,
   bicycle,
+  favourites,
+  hiddenRestaurants,
+  forwardArrowDark,
+  settings,
 };
 
 export default icons;

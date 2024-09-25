@@ -9,10 +9,12 @@ const CustomButton = ({
   variant = "primary-fill",
   icon = false,
   iconStyle,
+  disabled = false,
 }) => {
   return (
     <>
       <TouchableOpacity
+        disabled={disabled}
         onPress={handleOnPress}
         className={`flex flex-row items-center justify-center ${containerStyles} 
         ${variant === "primary-fill" && "bg-primary-orange"}
