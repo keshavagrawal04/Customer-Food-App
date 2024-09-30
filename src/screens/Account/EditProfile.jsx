@@ -55,7 +55,7 @@ const EditProfile = ({navigation}) => {
           setEdit={setActiveField}
           isEdit={true}
         />
-        {/* {activeField.name && (
+        {activeField.name && (
           <View className="flex flex-row justify-between">
             <CustomButton
               containerStyles={`w-[48%] rounded-md py-3`}
@@ -66,7 +66,7 @@ const EditProfile = ({navigation}) => {
               title={"Cancel"}
             />
           </View>
-        )} */}
+        )}
         <FloatingLabelTextInput
           label={"Email ADDRESS"}
           id={"email"}

@@ -26,8 +26,14 @@ import dish from "./dish.png";
 import tip from "./tip.png";
 import reorderImage from "./reorderImage.png";
 import emptyBox from "./emptyBox.png";
+import refer1 from "./refer1.png";
+import refer2 from "./refer2.png";
+import bee from "./bee.png";
+import thumbDown from "./thumbDown.png";
 
 const images = {
+  refer1,
+  refer2,
   reorderImage,
   dosa,
   salad,
@@ -56,5 +62,7 @@ const images = {
   dish,
   tip,
   emptyBox,
+  bee,
+  thumbDown,
 };
 export default images;

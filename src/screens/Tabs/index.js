@@ -1,7 +1,7 @@
 import Home from "./Home";
-import Cart from "./Cart";
+import Eatlist from "./Eatlist";
 import Restaurants from "./Restaurants";
 import Account from "./Account";
 import Reorder from "./Reorder";
 
-export {Home, Cart, Restaurants, Account, Reorder};
+export {Home, Eatlist, Restaurants, Account, Reorder};

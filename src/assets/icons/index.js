@@ -55,8 +55,13 @@ import favourites from "./favourites.png";
 import settings from "./settings.png";
 import hiddenRestaurants from "./hiddenRestaurants.png";
 import forwardArrowDark from "./forwardArrowDark.png";
+import paymentModes from "./paymentModes.png";
+import refundStatus from "./refundStatus.png";
+import refund from "./refund.png";
+import backArrowLight from "./backArrowLight.png";
 
 const icons = {
+  backArrowLight,
   primaryForwardArrow,
   location,
   circle1,
@@ -114,6 +119,9 @@ const icons = {
   hiddenRestaurants,
   forwardArrowDark,
   settings,
+  paymentModes,
+  refundStatus,
+  refund,
 };
 
 export default icons;

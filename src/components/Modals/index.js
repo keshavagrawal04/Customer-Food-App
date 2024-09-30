@@ -6,6 +6,8 @@ import OfferModal from "./OfferModal";
 import DishDetailsModal from "./DishDetailsModal";
 import CustomizeOrderModal from "./CustomizeOrderModal";
 import ReorderModal from "./ReorderModal";
+import LogoutModal from "./LogoutModal";
+import DeleteAccountModal from "./DeleteAccountModal";
 
 export {
   PermissionModal,
@@ -16,4 +18,6 @@ export {
   DishDetailsModal,
   CustomizeOrderModal,
   ReorderModal,
+  LogoutModal,
+  DeleteAccountModal,
 };
