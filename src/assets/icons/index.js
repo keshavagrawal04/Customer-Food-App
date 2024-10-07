@@ -59,8 +59,12 @@ import paymentModes from "./paymentModes.png";
 import refundStatus from "./refundStatus.png";
 import refund from "./refund.png";
 import backArrowLight from "./backArrowLight.png";
+import locationTarget from "./locationTarget.png";
+import home from "./home.png";
 
 const icons = {
+  home,
+  locationTarget,
   backArrowLight,
   primaryForwardArrow,
   location,

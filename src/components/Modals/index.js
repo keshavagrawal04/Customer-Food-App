@@ -8,6 +8,8 @@ import CustomizeOrderModal from "./CustomizeOrderModal";
 import ReorderModal from "./ReorderModal";
 import LogoutModal from "./LogoutModal";
 import DeleteAccountModal from "./DeleteAccountModal";
+import DeleteAddressModal from "./DeleteAddressModal";
+import CouponDetails from "./CouponDetails";
 
 export {
   PermissionModal,
@@ -20,4 +22,6 @@ export {
   ReorderModal,
   LogoutModal,
   DeleteAccountModal,
+  DeleteAddressModal,
+  CouponDetails,
 };

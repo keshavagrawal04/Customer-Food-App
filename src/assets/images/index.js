@@ -30,8 +30,14 @@ import refer1 from "./refer1.png";
 import refer2 from "./refer2.png";
 import bee from "./bee.png";
 import thumbDown from "./thumbDown.png";
+import eatlistBg from "./eatlistBg.png";
+import eatlist1 from "./eatlist1.png";
+import eatlist2 from "./eatlist2.png";
 
 const images = {
+  eatlistBg,
+  eatlist1,
+  eatlist2,
   refer1,
   refer2,
   reorderImage,

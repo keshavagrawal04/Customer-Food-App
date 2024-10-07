@@ -5,6 +5,7 @@ import RefundStatus from "./RefundStatus";
 import Refer from "./Refer";
 import Settings from "./Settings";
 import Map from "./Map";
+import EatList from "./EatList";
 
 export {
   EditProfile,
@@ -14,4 +15,5 @@ export {
   Refer,
   Settings,
   Map,
+  EatList,
 };

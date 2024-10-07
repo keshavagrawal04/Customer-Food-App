@@ -7,7 +7,13 @@ import {
   LocationAccess,
   Location,
 } from "../screens/Authentication";
-import {Splash, HomeScreen, SearchScreen, VegFilterPage} from "../screens";
+import {
+  Splash,
+  HomeScreen,
+  SearchScreen,
+  VegFilterPage,
+  PhonePay,
+} from "../screens";
 import {Checkout, Policy} from "../screens/Delivery";
 import {
   EditProfile,
@@ -17,6 +23,7 @@ import {
   Refer,
   Settings,
   Map,
+  EatList,
 } from "../screens/Account";
 
 const Stack = createNativeStackNavigator();
@@ -29,8 +36,10 @@ const Navigation = () => {
           headerShown: false,
           contentStyle: {backgroundColor: "#FFFFFF"},
         }}
-        initialRouteName="Map">
+        initialRouteName="HomeScreen">
         <Stack.Screen name="Map" component={Map} />
+        <Stack.Screen name="PhonePay" component={PhonePay} />
+        <Stack.Screen name="EatList" component={EatList} />
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="OtpVerification" component={OtpVerification} />

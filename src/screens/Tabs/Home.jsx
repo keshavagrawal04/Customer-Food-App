@@ -20,7 +20,7 @@ import {
   FilterModal,
   OfferModal,
   DishDetailsModal,
-  CustomizeOrderModal,
+  CouponDetails,
 } from "../../components/Modals";
 import {
   categories1,

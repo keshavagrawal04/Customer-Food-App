@@ -123,7 +123,7 @@ const Account = ({navigation}) => {
             <TouchableOpacity
               className="flex flex-row justify-between items-center pb-3"
               onPress={() => {
-                navigation.navigate("Eatlist");
+                navigation.navigate("EatList");
               }}>
               <View>
                 <View className="flex flex-row space-x-1 items-center mb-2">

@@ -4,9 +4,11 @@ import {SearchInput} from "../components/Inputs";
 import icons from "../assets/icons";
 import images from "../assets/images";
 import {RestaurantCard} from "../components/Cards";
+import {VoiceInput} from "../components/Modals";
 
 const SearchScreen = ({navigation}) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showVoiceAlert, setShowVoiceAlert] = useState({visible: false});
   const [isRestaurants, setIsRestaurants] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState("filter");
   const searchNotFound = true;
@@ -88,6 +90,9 @@ const SearchScreen = ({navigation}) => {
         isEdit
         handleIconPress={() => {
           navigation.navigate("HomeScreen");
+        }}
+        handleMicrophonePress={() => {
+          setShowVoiceAlert({visible: true});
         }}
         setSearchTerm={setSearchTerm}
         searchTerm={searchTerm}
@@ -208,6 +213,12 @@ const SearchScreen = ({navigation}) => {
           <RestaurantCard dishes={dishes} restaurant={restaurant} />
         </View>
       )}
+      <VoiceInput
+        visible={showVoiceAlert.visible}
+        handleClose={() => {
+          setShowVoiceAlert(prev => ({...prev, visible: false}));
+        }}
+      />
     </ScrollView>
   );
 };
