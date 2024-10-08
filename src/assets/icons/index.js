@@ -61,6 +61,8 @@ import refund from "./refund.png";
 import backArrowLight from "./backArrowLight.png";
 import locationTarget from "./locationTarget.png";
 import home from "./home.png";
+import leave from "./leave.png";
+import paneerPasanda from "./paneerPasanda.png";
 
 const icons = {
   home,
@@ -126,6 +128,8 @@ const icons = {
   paymentModes,
   refundStatus,
   refund,
+  leave,
+  paneerPasanda,
 };
 
 export default icons;

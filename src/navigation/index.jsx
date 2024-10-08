@@ -36,7 +36,7 @@ const Navigation = () => {
           headerShown: false,
           contentStyle: {backgroundColor: "#FFFFFF"},
         }}
-        initialRouteName="HomeScreen">
+        initialRouteName="PhonePay">
         <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="PhonePay" component={PhonePay} />
         <Stack.Screen name="EatList" component={EatList} />

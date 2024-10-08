@@ -17,7 +17,7 @@ const SearchInput = ({
   return (
     <TouchableOpacity
       onPress={handleInputPress}
-      className="px-2 border border-[#00000033] rounded-full flex flex-row items-center">
+      className="px-2 border-[1px] border-[#3C3A4533] rounded-full flex flex-row items-center">
       <TouchableOpacity
         onPress={
           handleIconPress === undefined ? handleInputPress : handleIconPress
