@@ -6,14 +6,52 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {SearchInput} from "../../components/Inputs";
 import icons from "../../assets/icons";
-import images from "../../assets/images";
+import {DishesCard} from "../../components/Cards";
 
 const Restaurants = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilterOption, setSelectedFilterOption] = useState("");
+  const [isClosing, setIsClosing] = useState(true);
+  const [isClosed, setIsClosed] = useState(false);
+  const [closingTime, setClosingTime] = useState(20);
+
+  const data = [
+    {
+      title: "Bahubali",
+      price: 352,
+      originalPrice: 440,
+      discount: "20%",
+      rating: 4.2,
+      reviews: 19683,
+      isBestSeller: false,
+      imageUrl: "https://via.placeholder.com/64",
+    },
+  ];
+
+  useEffect(() => {
+    if (closingTime === 0) {
+      setIsClosed(true);
+      setIsClosing(false);
+      return;
+    }
+
+    const intervalId = setInterval(() => {
+      setClosingTime(prevTime => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [closingTime, isClosing]);
+
+  const formatTime = seconds => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}m ${
+      remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds
+    }s`;
+  };
 
   const filterOptions = [
     {label: "Pure Veg", value: "pureVeg", icon: icons.leave},
@@ -29,6 +67,13 @@ const Restaurants = () => {
         <Image source={icons.backArrowDark} className="w-[24px] h-[24px]" />
         {/* Restorant card  */}
         <View className=" bg-white px-4 py-2 flex gap-2  mt-2 rounded-2xl">
+          {isClosed && (
+            <Image
+              source={icons.closed}
+              className="w-[140px] h-[140px] absolute -top-6 left-[30%] z-10"
+              resizeMode="contain"
+            />
+          )}
           <View className="flex flex-row justify-between ">
             <View>
               <View className="flex flex-row items-center space-x-1 pb-2">
@@ -73,6 +118,19 @@ const Restaurants = () => {
             </Text>
           </View>
         </View>
+        {isClosing && (
+          <View className="bg-[#3C3A45] flex flex-row py-4 rounded-xl justify-around items-center">
+            <Image source={icons.warning} className="w-[26px] h-[26px]" />
+            <Text className="text-white font-montserrat-bold">
+              Outlet will stop taking orders in
+            </Text>
+            <View className="border-[1px] rounded-2xl py-1 px-2 border-[#FFFFFF33]">
+              <Text className="text-white font-montserrat-bold">
+                {formatTime(closingTime)}
+              </Text>
+            </View>
+          </View>
+        )}
       </View>
       <View className="p-4 flex flex-row items-center space-x-2 border-[1px] border-[#00000033] mx-4 rounded-2xl mt-4">
         <Image source={icons.offer} className="w-[40px] h-[40px]" />
@@ -149,14 +207,14 @@ const Restaurants = () => {
             <Text className="font-proxima-nova-bold text-white text-xl">
               ₹352
             </Text>
-            <View className="flex flex-row items-center bg-white border-[1px] border-secondary-green px-5 py-1 rounded-full space-x-1">
+            <TouchableOpacity className="flex flex-row items-center bg-white border-[1px] border-secondary-green px-5 py-1 rounded-full space-x-1">
               <Text className="text-secondary-green text-xl font-montserrat-bold">
                 +
               </Text>
               <Text className="text-secondary-green font-montserrat-bold">
                 ADD
               </Text>
-            </View>
+            </TouchableOpacity>
           </View>
           <Text className="absolute bottom-1 right-4 font-proxima-nova-regular text-[#FFFFFF80]">
             Customizable
@@ -192,6 +250,24 @@ const Restaurants = () => {
           </Text>
         </View>
       </ScrollView>
+      <View className="h-[12px] my-4 bg-[#eeebea]" />
+      <View className="px-5">
+        <View className="flex flex-row justify-between items-center">
+          <Text className="text-[#3C3A45] font-montserrat-bold text-lg">
+            Recommended(6)
+          </Text>
+          <Image
+            source={icons.dropDownUp}
+            className="w-[25px] h-[25px]"
+            resizeMode="contain"
+          />
+        </View>
+        <View>
+          {data.map((item, index) => (
+            <DishesCard key={index} {...item} />
+          ))}
+        </View>
+      </View>
       <View className="mb-52"></View>
     </ScrollView>
   );

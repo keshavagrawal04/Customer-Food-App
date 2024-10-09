@@ -63,8 +63,14 @@ import locationTarget from "./locationTarget.png";
 import home from "./home.png";
 import leave from "./leave.png";
 import paneerPasanda from "./paneerPasanda.png";
+import warning from "./warning.png";
+import closed from "./closed.png";
+import dropDownUp from "./dropdownUp.png";
+import tag from "./tag.png";
 
 const icons = {
+  dropDownUp,
+  tag,
   home,
   locationTarget,
   backArrowLight,
@@ -130,6 +136,8 @@ const icons = {
   refund,
   leave,
   paneerPasanda,
+  warning,
+  closed,
 };
 
 export default icons;
